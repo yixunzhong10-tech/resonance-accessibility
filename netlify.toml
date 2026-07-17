@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# SPA回退：所有未匹配静态文件的路径都返回index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

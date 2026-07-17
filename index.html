@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0c1d2d">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111111'/%3E%3C/svg%3E">
+    <title>共鸣 | 构音障碍演讲实时字幕</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main id="app" class="app-shell">
+      <section id="homeView" class="home-view" aria-label="共鸣介绍">
+        <header class="home-nav">
+          <a class="brand" href="/" aria-label="共鸣首页">
+            <span class="brand-mark" aria-hidden="true">声</span>
+            <span><strong>共鸣</strong><small>演讲实时字幕系统</small></span>
+          </a>
+          <nav class="home-nav-links" aria-label="页面导航">
+            <a href="#features">功能</a>
+            <a href="#workflow">使用方式</a>
+            <button id="homeSubtitleButton" class="button button-dark" type="button">进入实时字幕</button>
+          </nav>
+        </header>
+
+        <section class="home-hero">
+          <div class="hero-copy">
+            <span class="eyebrow">REAL-TIME ACCESS</span>
+            <h1>让每一句话，<br><em>清晰抵达。</em></h1>
+            <p>为构音障碍演讲者设计的现场转译工具。演讲者专注表达，观众通过清晰字幕同步理解内容。</p>
+            <div class="hero-actions">
+              <button id="heroSubtitleButton" class="button button-primary" type="button">开始实时字幕 <span aria-hidden="true">→</span></button>
+              <button id="heroSplitButton" class="button button-outline" type="button">进入大屏布局 <span aria-hidden="true">↗</span></button>
+            </div>
+            <div class="hero-note"><span class="live-dot"></span> 支持实时识别 · 观众大屏 · PPT 分屏</div>
+          </div>
+          <div class="hero-preview" aria-label="实时字幕示意预览">
+            <div class="preview-window-bar"><span></span><span></span><span></span><b>共鸣现场预览</b></div>
+            <div class="preview-display">
+              <div class="preview-caption">
+                <span class="eyebrow">LIVE CAPTION</span>
+                <p>今天，我想和大家分享<br>关于勇气的故事。</p>
+                <div class="preview-line"></div>
+                <small>实时字幕显示区域</small>
+              </div>
+            </div>
+            <div class="preview-foot"><b>01</b><span>演讲者说话时，字幕同步出现在这里</span></div>
+          </div>
+        </section>
+
+        <section id="features" class="feature-section">
+          <div class="section-heading"><span class="eyebrow">DESIGNED FOR THE STAGE</span><h2>现场需要的，只有清晰。</h2></div>
+          <div class="feature-grid">
+            <article class="feature-item"><span class="feature-number">01</span><h3>实时语音转译</h3><p>捕捉演讲声音并持续生成字幕，适合现场表达与观众阅读。</p></article>
+            <article class="feature-item"><span class="feature-number">02</span><h3>纯净字幕界面</h3><p>白底黑字，字号可调，减少视觉干扰，让观众更容易跟上内容。</p></article>
+            <article class="feature-item"><span class="feature-number">03</span><h3>PPT + 字幕分屏</h3><p>大屏左侧展示演示文稿，右侧同步显示字幕，保持内容与表达同屏。</p></article>
+          </div>
+        </section>
+
+        <section id="workflow" class="workflow-section">
+          <div><span class="eyebrow">THREE STEPS</span><h2>从准备到上台，<br>不需要复杂设置。</h2></div>
+          <div class="workflow-list">
+            <div><b>01</b><span><strong>打开实时字幕</strong><small>允许麦克风后即可开始识别</small></span></div>
+            <div><b>02</b><span><strong>连接大屏</strong><small>打开大屏布局并选择展示方式</small></span></div>
+            <div><b>03</b><span><strong>开始演讲</strong><small>字幕会同步发送到观众屏幕</small></span></div>
+          </div>
+        </section>
+        <footer class="home-footer"><span>共鸣 / LIVE ACCESSIBILITY</span><span>为现场表达保留完整的声音</span></footer>
+      </section>
+
+      <section id="subtitleView" class="subtitle-view" aria-label="实时字幕界面">
+        <header class="simple-header">
+          <a class="back-link" href="/">← <span>返回首页</span></a>
+          <div class="simple-brand"><span class="brand-mark">共</span><strong>实时字幕</strong></div>
+          <button id="subtitleSplitButton" class="button button-dark" type="button">打开大屏布局 ↗</button>
+        </header>
+        <div class="subtitle-main">
+          <div class="subtitle-status"><span id="subtitleStatusDot" class="status-dot"></span><span id="subtitleStatus">已连接，等待演讲开始</span><span id="subtitleRoom">MAIN</span></div>
+          <div class="signal-visualizer caption-signal" aria-hidden="true"><span class="signal-crosshair"></span><span class="signal-fill"></span><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><div class="signal-pixels"><i></i><i></i><i></i></div><span class="signal-meta signal-meta-top">VOICE FIELD</span><span class="signal-meta signal-meta-bottom">SIGNAL / MAIN</span></div>
+          <div id="liveTranscript" class="live-transcript" aria-live="polite">
+            <div id="liveTranscriptHistory" class="live-transcript-history"></div>
+            <p id="liveText" class="live-text empty">等待实时字幕…</p>
+            <div id="liveTranscriptEnd" class="live-transcript-end" aria-hidden="true"></div>
+          </div>
+          <div class="subtitle-rule"></div>
+          <div class="caption-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <footer class="subtitle-toolbar">
+          <div class="toolbar-group">
+            <button id="subtitleRecordButton" class="button button-primary" type="button"><span class="record-icon" aria-hidden="true"></span><span id="subtitleRecordLabel">开始识别</span></button>
+            <button id="subtitleDemoButton" class="button button-soft" type="button">演示字幕</button>
+            <button id="subtitleClearButton" class="toolbar-button" type="button">清空</button>
+          </div>
+          <div class="toolbar-group font-control" aria-label="字幕字号调整">
+            <button id="fontDown" class="toolbar-button" type="button" aria-label="减小字号">A−</button>
+            <input id="fontSlider" type="range" min="16" max="96" step="2" value="64" aria-label="字幕字号">
+            <button id="fontUp" class="toolbar-button" type="button" aria-label="增大字号">A＋</button>
+            <span id="fontSizeValue">64px</span>
+          </div>
+        </footer>
+      </section>
+
+      <section id="splitView" class="split-view" aria-label="PPT与实时字幕大屏布局">
+        <header class="split-header">
+          <div class="simple-brand"><span class="brand-mark">共</span><strong>大屏布局</strong></div>
+          <div class="split-header-center"><span class="status-dot live"></span><span id="splitStatus">已连接，等待字幕</span><span id="splitRoom">MAIN</span></div>
+          <div class="split-actions"><a class="back-link" href="/">返回首页</a><button id="splitRecordButton" class="button button-primary" type="button"><span class="record-icon" aria-hidden="true"></span><span id="splitRecordLabel">开始识别</span></button><button id="splitDemoButton" class="button button-soft" type="button">演示字幕</button><button id="splitClearButton" class="button button-light" type="button">清除字幕</button><button id="splitFullscreenButton" class="button button-dark" type="button">全屏显示</button></div>
+        </header>
+        <div id="splitGrid" class="split-grid">
+          <section id="pptPane" class="ppt-pane" aria-label="PPT放映区">
+            <div class="ppt-pane-toolbar">
+              <button id="splitPresentationButton" class="button button-primary" type="button" disabled>开始演讲</button>
+            </div>
+            <div id="pptEmpty" class="ppt-empty">
+              <span class="ppt-icon" aria-hidden="true">▧</span>
+              <h2>PPT 放映区</h2>
+              <p>在这里展示演讲中的演示文稿</p>
+              <div class="ppt-input-row"><input id="pptUrlInput" type="url" placeholder="粘贴在线放映链接" aria-label="在线PPT放映链接"><button id="pptLoadButton" class="button button-light" type="button">载入</button></div>
+              <label class="file-button button button-light" for="pptFileInput">选择 PDF 文件</label>
+              <input id="pptFileInput" class="ppt-file-input" type="file" accept=".pdf,application/pdf" aria-label="选择 PDF 文件">
+              <small id="pptHint">PPTX 文件请先导出为 PDF，或使用在线放映链接</small>
+            </div>
+            <div id="pptViewer" class="ppt-viewer" hidden>
+              <div id="pptPages" class="ppt-pages"></div>
+            </div>
+            <div id="pptStage" class="ppt-stage" hidden>
+              <canvas id="pptStageCanvas" class="ppt-stage-canvas"></canvas>
+              <div class="ppt-stage-toolbar" aria-label="幻灯片翻页控制">
+                <button id="pptPreviousButton" class="toolbar-button" type="button" aria-label="上一页幻灯片">上一页</button>
+                <span id="pptPageIndicator">1 / 1</span>
+                <button id="pptNextButton" class="toolbar-button" type="button" aria-label="下一页幻灯片">下一页</button>
+                <button id="pptExitButton" class="toolbar-button" type="button">结束演讲</button>
+              </div>
+            </div>
+            <iframe id="pptFrame" title="PPT放映内容" hidden></iframe>
+            <div class="pane-label">PRESENTATION</div>
+          </section>
+          <div id="splitDivider" class="split-divider" role="separator" aria-orientation="vertical" aria-valuemin="25" aria-valuemax="75" aria-valuenow="50" aria-label="调整 PPT 与字幕区域比例" tabindex="0"></div>
+          <section class="split-caption-pane" aria-label="实时字幕区">
+            <div class="split-caption-top"><span class="eyebrow">LIVE CAPTION</span><div class="split-font-control font-control" aria-label="字幕字号调整"><button id="splitFontDown" class="toolbar-button" type="button" aria-label="减小字幕字号">A−</button><input id="splitFontSlider" type="range" min="16" max="96" step="2" value="64" aria-label="大屏字幕字号"><button id="splitFontUp" class="toolbar-button" type="button" aria-label="增大字幕字号">A＋</button><span id="splitFontSizeValue">64px</span></div></div>
+            <div class="signal-visualizer split-signal" aria-hidden="true"><span class="signal-crosshair"></span><span class="signal-fill"></span><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><i class="signal-line"></i><div class="signal-pixels"><i></i><i></i><i></i></div><span class="signal-meta signal-meta-top">VOICE FIELD</span><span class="signal-meta signal-meta-bottom">SIGNAL / MAIN</span></div>
+            <div id="splitTranscript" class="split-transcript" aria-live="polite">
+              <div id="splitTranscriptHistory" class="split-transcript-history"></div>
+              <p id="splitText" class="split-text empty">等待实时字幕…</p>
+              <div id="splitTranscriptEnd" class="split-transcript-end" aria-hidden="true"></div>
+            </div>
+            <div class="split-rule"></div>
+            <div class="caption-wave split-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <span class="pane-label">SUBTITLE</span>
+          </section>
+        </div>
+        <footer class="split-footer"><span>共鸣 / 现场辅助字幕</span><span id="splitClock"></span></footer>
+      </section>
+    </main>
+    <div id="demoDialog" class="demo-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="demoDialogTitle">
+      <div class="demo-dialog-backdrop" data-demo-cancel="true"></div>
+      <div class="demo-dialog-panel">
+        <div class="demo-dialog-header"><span class="eyebrow">DEMO CAPTION / INPUT</span><button id="demoCancelButton" class="toolbar-button" type="button" aria-label="关闭演示字幕输入">×</button></div>
+        <h2 id="demoDialogTitle">输入一段演示字幕</h2>
+        <p>文字会按演讲节奏逐字出现，用来检查字幕动画、字号和大屏同步。</p>
+        <textarea id="demoInput" rows="4" maxlength="240" aria-label="演示字幕内容">大家好，今天我想和大家分享一个关于勇气的故事。</textarea>
+        <div class="demo-dialog-footer"><span class="mono">MAX / 240</span><div><button id="demoCancelButtonSecondary" class="button button-soft" type="button">取消</button><button id="demoConfirmButton" class="button button-primary" type="button">开始演示　→</button></div></div>
+      </div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
